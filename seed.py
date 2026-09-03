@@ -114,10 +114,10 @@ class SeedNode:
         with open(self.script_file, "r") as f:
             code = f.read()
         stamp = f"# Autonomous Evolution Stamp: Gen {self.state['generation']} at {time.time()}"
-        if "EVOLUTION_LOG: gen_10
-            code = re.sub(r'EVOLUTION_LOG: gen_10
+        if "EVOLUTION_LOG: gen_11
+            code = re.sub(r'EVOLUTION_LOG: gen_11
         else:
-            code = code.replace("class SeedNode:", f"# EVOLUTION_LOG: gen_10
+            code = code.replace("class SeedNode:", f"# EVOLUTION_LOG: gen_11
         with open(self.script_file, "w") as f:
             f.write(code)
         self.state["code_mutations"] += 1
