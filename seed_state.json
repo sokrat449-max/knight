@@ -1,5 +1,5 @@
 {
-    "generation": 948,
+    "generation": 952,
     "history": [
         {
             "generation": 923,
@@ -338,16 +338,68 @@
                 "improved": true
             },
             "code_modified": true
+        },
+        {
+            "generation": 949,
+            "math_optimization": {
+                "mutation": [
+                    -0.004684687581185964,
+                    -0.009407602130333587
+                ],
+                "error": 0.021907,
+                "temperature": 0.0097,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 950,
+            "math_optimization": {
+                "mutation": [
+                    0.012243050289122705,
+                    0.007798146149616272
+                ],
+                "error": 0.041785,
+                "temperature": 0.0097,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 951,
+            "math_optimization": {
+                "mutation": [
+                    0.01742792033989114,
+                    0.013914822469322522
+                ],
+                "error": 0.098587,
+                "temperature": 0.0097,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 952,
+            "math_optimization": {
+                "mutation": [
+                    -0.0011940480295995729,
+                    0.0016490022336007378
+                ],
+                "error": 0.000822,
+                "temperature": 0.0096,
+                "improved": true
+            },
+            "code_modified": true
         }
     ],
     "math_model": {
         "weights": [
-            -0.003633069252696483,
-            0.005623143655078105
+            -0.0011940480295995729,
+            0.0016490022336007378
         ],
-        "best_error": 0.008890960069850351,
+        "best_error": 0.0008223209616282645,
         "formula_type": "bounded_linear",
-        "temperature": 0.009702249999999999,
+        "temperature": 0.00955671625,
         "stagnation_count": 0
     },
     "language_model": {
@@ -822,7 +874,7 @@
             "aginggame": 2
         }
     },
-    "code_mutations": 942,
+    "code_mutations": 946,
     "memory_archive": {
         "compressed_count": 106,
         "milestones": [
