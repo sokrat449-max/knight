@@ -113,10 +113,10 @@ class SeedNode:
             return False
         with open(self.script_file, "r") as f:
             code = f.read()
-        if "EVOLUTION_LOG: gen_30
-            code = re.sub(r'EVOLUTION_LOG: gen_30
+        if "EVOLUTION_LOG: gen_31
+            code = re.sub(r'EVOLUTION_LOG: gen_31
         else:
-            code = code.replace("class SeedNode:", f"# EVOLUTION_LOG: gen_30
+            code = code.replace("class SeedNode:", f"# EVOLUTION_LOG: gen_31
         with open(self.script_file, "w") as f:
             f.write(code)
         self.state["code_mutations"] += 1
