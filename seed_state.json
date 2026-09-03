@@ -1,5 +1,5 @@
 {
-    "generation": 123,
+    "generation": 125,
     "history": [
         {
             "generation": 107,
@@ -245,16 +245,42 @@
                 "improved": true
             },
             "code_modified": true
+        },
+        {
+            "generation": 124,
+            "math_optimization": {
+                "mutation": [
+                    -1.3352128443227396,
+                    2.4968105922967503
+                ],
+                "error": 43.116769,
+                "temperature": 0.9025,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 125,
+            "math_optimization": {
+                "mutation": [
+                    0.9547651130316442,
+                    2.274933878896426
+                ],
+                "error": 18.048333,
+                "temperature": 0.8574,
+                "improved": true
+            },
+            "code_modified": true
         }
     ],
     "math_model": {
         "weights": [
-            0.6952281554559229,
-            1.8714052541563275
+            0.9547651130316442,
+            2.274933878896426
         ],
-        "best_error": 20.44982013690787,
+        "best_error": 18.048332784934544,
         "formula_type": "bounded_linear",
-        "temperature": 0.9025,
+        "temperature": 0.8573749999999999,
         "stagnation_count": 0
     },
     "language_model": {
@@ -729,7 +755,7 @@
             "aginggame": 2
         }
     },
-    "code_mutations": 117,
+    "code_mutations": 119,
     "memory_archive": {
         "compressed_count": 106,
         "milestones": [
