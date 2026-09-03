@@ -1,114 +1,6 @@
 {
-    "generation": 28,
+    "generation": 29,
     "history": [
-        {
-            "generation": 19,
-            "environment": {
-                "timestamp": 1788451556.7543926,
-                "latency_ms": 297.77,
-                "system_signature": "Linux localhost 5.10.236-android12-9-00006-g71f3aedc8b92-ab14427738 #1 SMP PREEMPT Wed Nov 12 20:20:48 UTC 2025 aarch64 Android"
-            },
-            "math_optimization": {
-                "mutation": [
-                    0.4602801561704843,
-                    0.38361344302076095
-                ],
-                "error": 270.91985776126813,
-                "improved": false
-            },
-            "language_synthesis": "words start exception latency",
-            "code_modified": true
-        },
-        {
-            "generation": 20,
-            "environment": {
-                "timestamp": 1788451569.22897,
-                "latency_ms": 529.82,
-                "system_signature": "Linux localhost 5.10.236-android12-9-00006-g71f3aedc8b92-ab14427738 #1 SMP PREEMPT Wed Nov 12 20:20:48 UTC 2025 aarch64 Android"
-            },
-            "math_optimization": {
-                "mutation": [
-                    0.4946286307390098,
-                    0.38515956405002827
-                ],
-                "error": 501.23697282254926,
-                "improved": false
-            },
-            "language_synthesis": "code import class seednode",
-            "code_modified": true
-        },
-        {
-            "generation": 21,
-            "environment": {
-                "timestamp": 1788451581.814059,
-                "latency_ms": 1285.81,
-                "system_signature": "Linux localhost 5.10.236-android12-9-00006-g71f3aedc8b92-ab14427738 #1 SMP PREEMPT Wed Nov 12 20:20:48 UTC 2025 aarch64 Android"
-            },
-            "math_optimization": {
-                "mutation": [
-                    0.4748487692871602,
-                    0.33905798364092077
-                ],
-                "error": 1258.6769816992328,
-                "improved": false
-            },
-            "language_synthesis": "text vocab self node",
-            "code_modified": true
-        },
-        {
-            "generation": 22,
-            "environment": {
-                "timestamp": 1788451595.6095002,
-                "latency_ms": 878.54,
-                "system_signature": "Linux localhost 5.10.236-android12-9-00006-g71f3aedc8b92-ab14427738 #1 SMP PREEMPT Wed Nov 12 20:20:48 UTC 2025 aarch64 Android"
-            },
-            "math_optimization": {
-                "mutation": [
-                    0.5011446990133094,
-                    0.41853709906337194
-                ],
-                "error": 849.2973940587008,
-                "improved": false
-            },
-            "language_synthesis": "seed predicted open seednode",
-            "code_modified": true
-        },
-        {
-            "generation": 23,
-            "environment": {
-                "timestamp": 1788451608.7754664,
-                "latency_ms": 270.92,
-                "system_signature": "Linux localhost 5.10.236-android12-9-00006-g71f3aedc8b92-ab14427738 #1 SMP PREEMPT Wed Nov 12 20:20:48 UTC 2025 aarch64 Android"
-            },
-            "math_optimization": {
-                "mutation": [
-                    0.49884784201959526,
-                    0.36848301686858204
-                ],
-                "error": 242.29277773033442,
-                "improved": false
-            },
-            "language_synthesis": "self return vocab node",
-            "code_modified": true
-        },
-        {
-            "generation": 24,
-            "environment": {
-                "timestamp": 1788451621.4917226,
-                "latency_ms": 405.24,
-                "system_signature": "Linux localhost 5.10.236-android12-9-00006-g71f3aedc8b92-ab14427738 #1 SMP PREEMPT Wed Nov 12 20:20:48 UTC 2025 aarch64 Android"
-            },
-            "math_optimization": {
-                "mutation": [
-                    0.47001637330815155,
-                    0.34880614623622125
-                ],
-                "error": 378.2511198722302,
-                "improved": false
-            },
-            "language_synthesis": "weights json time vocabulary",
-            "code_modified": true
-        },
         {
             "generation": 25,
             "environment": {
@@ -179,6 +71,24 @@
                 "improved": false
             },
             "language_synthesis": "stdout drwx freqs words",
+            "code_modified": true
+        },
+        {
+            "generation": 29,
+            "environment": {
+                "timestamp": 1788451686.4076324,
+                "latency_ms": 430.98,
+                "system_signature": "Linux localhost 5.10.236-android12-9-00006-g71f3aedc8b92-ab14427738 #1 SMP PREEMPT Wed Nov 12 20:20:48 UTC 2025 aarch64 Android"
+            },
+            "math_optimization": {
+                "mutation": [
+                    0.4674056476103019,
+                    0.3757021977205218
+                ],
+                "error": 403.8526956422797,
+                "improved": false
+            },
+            "language_synthesis": "drwx data latency predicted",
             "code_modified": true
         }
     ],
@@ -313,131 +223,131 @@
             "window"
         ],
         "frequencies": {
-            "import": 192,
-            "subprocess": 144,
-            "json": 144,
-            "time": 294,
-            "urllib": 48,
-            "request": 48,
-            "socket": 24,
-            "random": 168,
-            "class": 46,
-            "seednode": 72,
-            "self": 1384,
-            "path": 116,
-            "join": 70,
-            "state": 566,
-            "return": 308,
-            "generation": 240,
-            "weights": 120,
-            "float": 24,
-            "vocabulary": 84,
-            "frequencies": 48,
-            "history": 180,
-            "exists": 70,
-            "with": 116,
-            "open": 116,
-            "data": 96,
-            "load": 24,
-            "default": 48,
-            "items": 48,
-            "except": 120,
-            "exception": 120,
-            "dump": 24,
-            "indent": 24,
-            "timestamp": 24,
-            "none": 24,
-            "start": 48,
-            "urlopen": 24,
-            "https": 24,
-            "github": 24,
-            "timeout": 24,
-            "round": 46,
-            "uname": 24,
-            "true": 286,
-            "text": 144,
-            "stdout": 48,
-            "strip": 24,
-            "vocab": 72,
-            "freqs": 96,
-            "seed": 118,
-            "append": 118,
-            "read": 46,
-            "pass": 24,
-            "words": 62,
-            "findall": 24,
-            "lower": 24,
-            "count": 24,
-            "sorted": 24,
-            "lambda": 24,
-            "reverse": 24,
-            "node": 118,
-            "local": 24,
-            "choices": 24,
-            "mutation": 144,
-            "uniform": 24,
-            "predicted": 48,
-            "error": 204,
-            "improved": 100,
-            "else": 46,
-            "false": 94,
-            "evolve": 48,
-            "latency": 50,
-            "packet": 172,
-            "environment": 28,
-            "check": 24,
-            "commit": 24,
+            "import": 200,
+            "subprocess": 150,
+            "json": 150,
+            "time": 306,
+            "urllib": 50,
+            "request": 50,
+            "socket": 25,
+            "random": 175,
+            "class": 48,
+            "seednode": 75,
+            "self": 1443,
+            "path": 121,
+            "join": 73,
+            "state": 590,
+            "return": 321,
+            "generation": 250,
+            "weights": 125,
+            "float": 25,
+            "vocabulary": 88,
+            "frequencies": 50,
+            "history": 188,
+            "exists": 73,
+            "with": 121,
+            "open": 121,
+            "data": 100,
+            "load": 25,
+            "default": 50,
+            "items": 50,
+            "except": 125,
+            "exception": 125,
+            "dump": 25,
+            "indent": 25,
+            "timestamp": 25,
+            "none": 25,
+            "start": 50,
+            "urlopen": 25,
+            "https": 25,
+            "github": 25,
+            "timeout": 25,
+            "round": 48,
+            "uname": 25,
+            "true": 298,
+            "text": 150,
+            "stdout": 50,
+            "strip": 25,
+            "vocab": 75,
+            "freqs": 100,
+            "seed": 123,
+            "append": 123,
+            "read": 48,
+            "pass": 25,
+            "words": 65,
+            "findall": 25,
+            "lower": 25,
+            "count": 25,
+            "sorted": 25,
+            "lambda": 25,
+            "reverse": 25,
+            "node": 123,
+            "local": 25,
+            "choices": 25,
+            "mutation": 150,
+            "uniform": 25,
+            "predicted": 50,
+            "error": 213,
+            "improved": 104,
+            "else": 48,
+            "false": 98,
+            "evolve": 50,
+            "latency": 52,
+            "packet": 179,
+            "environment": 29,
+            "check": 25,
+            "commit": 25,
             "auto": 2,
             "sync": 2,
-            "returncode": 48,
-            "push": 24,
-            "origin": 24,
-            "main": 24,
-            "print": 274,
+            "returncode": 50,
+            "push": 25,
+            "origin": 25,
+            "main": 25,
+            "print": 286,
             "pure": 2,
-            "autonomous": 46,
-            "math": 38,
+            "autonomous": 48,
+            "math": 40,
             "harvested": 2,
             "language": 2,
-            "phrase": 24,
+            "phrase": 25,
             "remote": 2,
             "synchronization": 2,
             "status": 2,
-            "total": 24,
-            "drwx": 72,
-            "milestones": 88,
-            "milestone": 44,
-            "range": 22,
-            "code": 136,
+            "total": 25,
+            "drwx": 75,
+            "milestones": 92,
+            "milestone": 46,
+            "range": 23,
+            "code": 142,
             "stamp": 16,
-            "evolution": 36,
-            "replace": 22,
+            "evolution": 38,
+            "replace": 23,
             "nclass": 2,
-            "write": 22,
-            "audit": 30,
-            "mutations": 22,
-            "while": 22,
-            "sleep": 22,
-            "memory": 14,
-            "system": 14,
-            "report": 14,
-            "current": 14,
-            "best": 14,
-            "size": 14,
-            "archived": 14,
-            "memories": 14,
-            "recorded": 14,
-            "minutes": 14,
-            "starting": 14,
-            "minute": 14,
-            "network": 14,
-            "access": 14,
-            "window": 14
+            "write": 23,
+            "audit": 31,
+            "mutations": 23,
+            "while": 23,
+            "sleep": 23,
+            "memory": 15,
+            "system": 15,
+            "report": 15,
+            "current": 15,
+            "best": 15,
+            "size": 15,
+            "archived": 15,
+            "memories": 15,
+            "recorded": 15,
+            "minutes": 15,
+            "starting": 15,
+            "minute": 15,
+            "network": 15,
+            "access": 15,
+            "window": 15
         }
     },
-    "code_mutations": 22,
+    "code_mutations": 23,
     "memory_archive": {
-        "compressed_count": 18,
+        "compressed_count": 24,
         "milestones": [
             {
                 "range": "Gen 1 to 6",
@@ -450,6 +360,10 @@
             {
                 "range": "Gen 13 to 18",
                 "avg_error": 559.78
+            },
+            {
+                "range": "Gen 19 to 24",
+                "avg_error": 583.45
             }
         ]
     }
