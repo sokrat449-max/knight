@@ -19,7 +19,7 @@ class SeedNode:
             "math_model": {
                 "weights": [random.uniform(-2.0, 2.0) for _ in range(4)],
                 "best_error": float('inf'),
-                "temperature": 1.0,
+                "temperature": 0.5,
                 "stagnation_count": 0
             },
             "code_mutations": 0,
@@ -50,7 +50,6 @@ class SeedNode:
             json.dump(self.state, f, indent=4)
 
     def rastrigin_fitness(self, weights):
-        """Deterministic multi-dimensional Rastrigin function (Global minimum = 0.0)"""
         n = len(weights)
         A = 10.0
         sum_val = A * n
@@ -63,7 +62,7 @@ class SeedNode:
         weights = model["weights"]
         temp = model["temperature"]
         
-        # Adaptive simulated annealing mutation
+        # Fine-tuned simulated annealing mutation with controlled micro-steps
         mutation = [w + random.gauss(0, temp) for w in weights]
         error = self.rastrigin_fitness(mutation)
         
@@ -72,19 +71,18 @@ class SeedNode:
             model["weights"] = mutation
             model["best_error"] = error
             model["stagnation_count"] = 0
-            model["temperature"] = max(0.005, model["temperature"] * 0.95)
+            model["temperature"] = max(0.001, model["temperature"] * 0.97)
             improved = True
         else:
             model["stagnation_count"] += 1
-            # Dynamic reheating upon prolonged stagnation to escape local minima
-            if model["stagnation_count"] > 15:
-                model["temperature"] = min(2.5, model["temperature"] * 1.8)
+            # Controlled micro-reheating to prevent violent jumps (max cap 0.4 instead of 2.5)
+            if model["stagnation_count"] > 20:
+                model["temperature"] = min(0.4, model["temperature"] * 1.3)
                 model["stagnation_count"] = 0
                 
         return {"mutation": mutation, "error": round(error, 6), "temperature": round(model["temperature"], 4), "improved": improved}
 
     def ast_self_modify(self):
-        """AST-level structural code verification and adaptation"""
         if not os.path.exists(self.script_file):
             return False
         try:
@@ -94,13 +92,11 @@ class SeedNode:
             class ASTMutator(ast.NodeTransformer):
                 def visit_Constant(self, node):
                     if isinstance(node.value, float) and 0.0 < node.value < 1.0:
-                        node.value = round(node.value * random.uniform(0.95, 1.05), 6)
+                        node.value = round(node.value * random.uniform(0.98, 1.02), 6)
                     return node
 
             mutated_tree = ASTMutator().visit(tree)
             ast.fix_missing_locations(mutated_tree)
-            
-            # Dry-run compilation check to ensure syntax integrity
             compile(mutated_tree, filename=self.script_file, mode='exec')
             self.state["code_mutations"] += 1
             return True
@@ -126,12 +122,11 @@ class SeedNode:
         return packet
 
     def conditional_git_sync(self, improved):
-        """Milestone-driven Git sync protecting flash storage"""
         if not improved:
             return False
         try:
             subprocess.run(["git", "add", "seed_state.json", "seed.py"], check=True, cwd=self.repo_dir, timeout=5)
-            msg = f"milestone DSROE gen {self.state['generation']} best_err {self.state['math_model']['best_error']:.6f}"
+            msg = f"fine-tune milestone gen {self.state['generation']} best_err {self.state['math_model']['best_error']:.6f}"
             commit_res = subprocess.run(["git", "commit", "-m", msg], cwd=self.repo_dir, capture_output=True, text=True, timeout=5)
             if commit_res.returncode == 0:
                 subprocess.run(["git", "push", "origin", "main"], cwd=self.repo_dir, capture_output=True, text=True, timeout=10)
@@ -142,7 +137,7 @@ class SeedNode:
 
     def full_audit_report(self):
         print("\n" + "="*40)
-        print("    [ DSROE SEED FINAL AUDIT ]")
+        print("    [ FINE-TUNED SEED FINAL AUDIT ]")
         print("="*40)
         print(f"-> Final Generation: {self.state['generation']}")
         print(f"-> Absolute Best Error: {self.state['math_model']['best_error']:.6f}")
@@ -155,7 +150,7 @@ if __name__ == "__main__":
     duration_seconds = 15 * 60
     start_time = time.time()
     
-    print("[*] Initializing Closed-Loop DSROE Engine...")
+    print("[*] Initializing Fine-Tuned Simulated Annealing Engine...")
     
     try:
         while time.time() - start_time < duration_seconds:
