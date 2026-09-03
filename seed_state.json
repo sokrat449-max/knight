@@ -1,214 +1,6 @@
 {
-    "generation": 151,
+    "generation": 165,
     "history": [
-        {
-            "generation": 123,
-            "math_optimization": {
-                "mutation": [
-                    0.6952281554559229,
-                    1.8714052541563275
-                ],
-                "error": 20.44982,
-                "temperature": 0.9025,
-                "improved": true
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 124,
-            "math_optimization": {
-                "mutation": [
-                    -1.3352128443227396,
-                    2.4968105922967503
-                ],
-                "error": 43.116769,
-                "temperature": 0.9025,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 125,
-            "math_optimization": {
-                "mutation": [
-                    0.9547651130316442,
-                    2.274933878896426
-                ],
-                "error": 18.048333,
-                "temperature": 0.8574,
-                "improved": true
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 126,
-            "math_optimization": {
-                "mutation": [
-                    1.4535382417931872,
-                    2.869309260194117
-                ],
-                "error": 33.108848,
-                "temperature": 0.8574,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 127,
-            "math_optimization": {
-                "mutation": [
-                    1.5383250014452443,
-                    2.4349760348135905
-                ],
-                "error": 47.183968,
-                "temperature": 0.8574,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 128,
-            "math_optimization": {
-                "mutation": [
-                    2.0954115564571483,
-                    3.7841092345402414
-                ],
-                "error": 28.327211,
-                "temperature": 0.8574,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 129,
-            "math_optimization": {
-                "mutation": [
-                    -1.1523424981976707,
-                    3.1081610783990685
-                ],
-                "error": 17.452146,
-                "temperature": 0.8145,
-                "improved": true
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 130,
-            "math_optimization": {
-                "mutation": [
-                    0.14580015853054618,
-                    3.1463949565160805
-                ],
-                "error": 17.77221,
-                "temperature": 0.8145,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 131,
-            "math_optimization": {
-                "mutation": [
-                    -2.0814078561200713,
-                    3.287676542534271
-                ],
-                "error": 28.766204,
-                "temperature": 0.8145,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 132,
-            "math_optimization": {
-                "mutation": [
-                    -0.18714792975668182,
-                    2.744877468743447
-                ],
-                "error": 24.043917,
-                "temperature": 0.8145,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 133,
-            "math_optimization": {
-                "mutation": [
-                    0.04481279923766346,
-                    3.8219856111071246
-                ],
-                "error": 20.633026,
-                "temperature": 0.8145,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 134,
-            "math_optimization": {
-                "mutation": [
-                    -1.0541507974677422,
-                    2.6321217737819476
-                ],
-                "error": 25.360234,
-                "temperature": 0.8145,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 135,
-            "math_optimization": {
-                "mutation": [
-                    -0.47477199798415703,
-                    3.5073132808254224
-                ],
-                "error": 52.390732,
-                "temperature": 0.8145,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 136,
-            "math_optimization": {
-                "mutation": [
-                    -2.07109148210148,
-                    1.4773763577319008
-                ],
-                "error": 27.352342,
-                "temperature": 0.8145,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 137,
-            "math_optimization": {
-                "mutation": [
-                    -0.7414969785428493,
-                    3.0909382136912873
-                ],
-                "error": 22.226177,
-                "temperature": 0.8145,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 138,
-            "math_optimization": {
-                "mutation": [
-                    -1.2187126750965471,
-                    2.2528786308868076
-                ],
-                "error": 24.788379,
-                "temperature": 0.8145,
-                "improved": false
-            },
-            "code_modified": true
-        },
         {
             "generation": 139,
             "math_optimization": {
@@ -377,16 +169,198 @@
                 "improved": true
             },
             "code_modified": true
+        },
+        {
+            "generation": 152,
+            "math_optimization": {
+                "mutation": [
+                    0.4394562994882777,
+                    3.890682381472824
+                ],
+                "error": 36.883275,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 153,
+            "math_optimization": {
+                "mutation": [
+                    0.6016634353440835,
+                    2.5219954480257814
+                ],
+                "error": 44.655409,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 154,
+            "math_optimization": {
+                "mutation": [
+                    0.0820614474018115,
+                    4.432744469745668
+                ],
+                "error": 40.076366,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 155,
+            "math_optimization": {
+                "mutation": [
+                    0.32516963816239475,
+                    2.734409291089502
+                ],
+                "error": 33.110156,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 156,
+            "math_optimization": {
+                "mutation": [
+                    1.454700300868767,
+                    4.852475814208159
+                ],
+                "error": 49.257354,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 157,
+            "math_optimization": {
+                "mutation": [
+                    -0.9662070442365354,
+                    2.62155973139274
+                ],
+                "error": 25.252952,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 158,
+            "math_optimization": {
+                "mutation": [
+                    2.168286616774781,
+                    2.6425370763566907
+                ],
+                "error": 33.023483,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 159,
+            "math_optimization": {
+                "mutation": [
+                    0.22452548186629007,
+                    3.1901569192653585
+                ],
+                "error": 24.961651,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 160,
+            "math_optimization": {
+                "mutation": [
+                    -1.542639520984144,
+                    2.437358146270328
+                ],
+                "error": 47.19909,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 161,
+            "math_optimization": {
+                "mutation": [
+                    1.511680160317792,
+                    4.127163484227997
+                ],
+                "error": 42.317442,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 162,
+            "math_optimization": {
+                "mutation": [
+                    0.9463028098755448,
+                    1.4960134200830457
+                ],
+                "error": 23.694188,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 163,
+            "math_optimization": {
+                "mutation": [
+                    2.0732625044157285,
+                    3.5069243589733743
+                ],
+                "error": 37.628378,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 164,
+            "math_optimization": {
+                "mutation": [
+                    0.761744743205729,
+                    2.9331279913689263
+                ],
+                "error": 19.316021,
+                "temperature": 1.3232,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 165,
+            "math_optimization": {
+                "mutation": [
+                    1.8213465093368908,
+                    1.860196082290051
+                ],
+                "error": 16.059713,
+                "temperature": 1.257,
+                "improved": true
+            },
+            "code_modified": true
         }
     ],
     "math_model": {
         "weights": [
-            0.17570910762131953,
-            3.07873504519801
+            1.8213465093368908,
+            1.860196082290051
         ],
-        "best_error": 16.208242355143778,
+        "best_error": 16.059713309368238,
         "formula_type": "bounded_linear",
-        "temperature": 1.3231654031249995,
+        "temperature": 1.2570071329687496,
         "stagnation_count": 0
     },
     "language_model": {
@@ -861,7 +835,7 @@
             "aginggame": 2
         }
     },
-    "code_mutations": 145,
+    "code_mutations": 159,
     "memory_archive": {
         "compressed_count": 106,
         "milestones": [
