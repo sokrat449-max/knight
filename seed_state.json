@@ -1,5 +1,5 @@
 {
-    "generation": 125,
+    "generation": 129,
     "history": [
         {
             "generation": 107,
@@ -271,16 +271,68 @@
                 "improved": true
             },
             "code_modified": true
+        },
+        {
+            "generation": 126,
+            "math_optimization": {
+                "mutation": [
+                    1.4535382417931872,
+                    2.869309260194117
+                ],
+                "error": 33.108848,
+                "temperature": 0.8574,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 127,
+            "math_optimization": {
+                "mutation": [
+                    1.5383250014452443,
+                    2.4349760348135905
+                ],
+                "error": 47.183968,
+                "temperature": 0.8574,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 128,
+            "math_optimization": {
+                "mutation": [
+                    2.0954115564571483,
+                    3.7841092345402414
+                ],
+                "error": 28.327211,
+                "temperature": 0.8574,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 129,
+            "math_optimization": {
+                "mutation": [
+                    -1.1523424981976707,
+                    3.1081610783990685
+                ],
+                "error": 17.452146,
+                "temperature": 0.8145,
+                "improved": true
+            },
+            "code_modified": true
         }
     ],
     "math_model": {
         "weights": [
-            0.9547651130316442,
-            2.274933878896426
+            -1.1523424981976707,
+            3.1081610783990685
         ],
-        "best_error": 18.048332784934544,
+        "best_error": 17.452146045900058,
         "formula_type": "bounded_linear",
-        "temperature": 0.8573749999999999,
+        "temperature": 0.8145062499999999,
         "stagnation_count": 0
     },
     "language_model": {
@@ -755,7 +807,7 @@
             "aginggame": 2
         }
     },
-    "code_mutations": 119,
+    "code_mutations": 123,
     "memory_archive": {
         "compressed_count": 106,
         "milestones": [
