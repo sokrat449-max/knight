@@ -1,5 +1,5 @@
 {
-    "generation": 120,
+    "generation": 121,
     "history": [
         {
             "generation": 107,
@@ -206,15 +206,30 @@
             },
             "language_synthesis": "latency timeout words subprocess",
             "code_modified": true
+        },
+        {
+            "generation": 121,
+            "math_optimization": {
+                "mutation": [
+                    0.8826842794936034,
+                    0.47406250108185694
+                ],
+                "error": 23.467266,
+                "temperature": 0.95,
+                "improved": true
+            },
+            "code_modified": true
         }
     ],
     "math_model": {
         "weights": [
-            0.4981991632677261,
-            0.34771113399236797
+            0.8826842794936034,
+            0.47406250108185694
         ],
-        "best_error": 155.47697527467568,
-        "formula_type": "bounded_linear"
+        "best_error": 23.467265611473678,
+        "formula_type": "bounded_linear",
+        "temperature": 0.95,
+        "stagnation_count": 0
     },
     "language_model": {
         "vocabulary": [
@@ -688,7 +703,7 @@
             "aginggame": 2
         }
     },
-    "code_mutations": 114,
+    "code_mutations": 115,
     "memory_archive": {
         "compressed_count": 106,
         "milestones": [
