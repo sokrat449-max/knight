@@ -1,339 +1,248 @@
 {
-    "generation": 292,
+    "generation": 413,
     "history": [
         {
-            "generation": 267,
+            "generation": 395,
             "math_optimization": {
                 "mutation": [
-                    4.542455274778116,
-                    0.6765774421781516
+                    0.15223048766146574,
+                    -0.18649694104195386
                 ],
-                "error": 55.189345,
+                "error": 10.409072,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 268,
+            "generation": 396,
             "math_optimization": {
                 "mutation": [
-                    -0.06117348812252721,
-                    0.525492960210397
+                    3.6700103789403395,
+                    1.4196122260595423
                 ],
-                "error": 20.881506,
+                "error": 49.052543,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 269,
+            "generation": 397,
             "math_optimization": {
                 "mutation": [
-                    -0.3226652705977755,
-                    -0.9661416192900334
+                    4.2899461922047495,
+                    2.963097283476549
                 ],
-                "error": 15.671693,
+                "error": 39.934816,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 270,
+            "generation": 398,
             "math_optimization": {
                 "mutation": [
-                    -4.734971508915854,
-                    -0.9574654573529666
+                    4.591151143226997,
+                    -1.5700973745676126
                 ],
-                "error": 34.634559,
+                "error": 60.993842,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 271,
+            "generation": 399,
             "math_optimization": {
                 "mutation": [
-                    1.7231501043402122,
-                    -1.1536156873116536
+                    1.1155409266691927,
+                    0.19435102806380955
                 ],
-                "error": 20.286554,
+                "error": 10.377896,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 272,
+            "generation": 400,
             "math_optimization": {
                 "mutation": [
-                    2.134626138929094,
-                    0.6793973529860156
+                    -1.7113630899868584,
+                    -3.6619377012475054
                 ],
-                "error": 22.679513,
+                "error": 43.997482,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 273,
+            "generation": 401,
             "math_optimization": {
                 "mutation": [
-                    3.235438168274528,
-                    -1.0492465423765749
+                    0.6933266782358016,
+                    -2.0537154083129323
                 ],
-                "error": 21.13022,
+                "error": 18.74872,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 274,
+            "generation": 402,
             "math_optimization": {
                 "mutation": [
-                    3.688516422964936,
-                    4.101553055733857
+                    1.2444472767791541,
+                    -0.8389601541698243
                 ],
-                "error": 46.163216,
+                "error": 16.600697,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 275,
+            "generation": 403,
             "math_optimization": {
                 "mutation": [
-                    1.7990343209280868,
-                    2.5722612207019084
+                    3.360260497208001,
+                    -1.741524082485315
                 ],
-                "error": 35.807511,
+                "error": 41.243405,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 276,
+            "generation": 404,
             "math_optimization": {
                 "mutation": [
-                    1.055681719201491,
-                    -1.767874708095711
+                    2.363975971936892,
+                    4.509577103373261
                 ],
-                "error": 13.724891,
+                "error": 62.471287,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 277,
+            "generation": 405,
             "math_optimization": {
                 "mutation": [
-                    -3.1946982494676686,
-                    -1.0607455342764154
+                    -1.7855233726847852,
+                    1.8936798294368755
                 ],
-                "error": 18.645647,
+                "error": 16.710165,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 278,
+            "generation": 406,
             "math_optimization": {
                 "mutation": [
-                    3.9421276158600387,
-                    3.551481881849608
+                    0.3168316924348149,
+                    2.1984455573072554
                 ],
-                "error": 48.28863,
+                "error": 25.827473,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 279,
+            "generation": 407,
             "math_optimization": {
                 "mutation": [
-                    0.5155906570539492,
-                    3.138663033245065
+                    2.2917901131632847,
+                    -5.279573741325991
                 ],
-                "error": 33.630357,
+                "error": 57.569381,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 280,
+            "generation": 408,
             "math_optimization": {
                 "mutation": [
-                    0.3332109660017267,
-                    -0.24276953811147073
+                    2.2497828981710675,
+                    -1.53068595618852
                 ],
-                "error": 24.70916,
+                "error": 37.205587,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 281,
+            "generation": 409,
             "math_optimization": {
                 "mutation": [
-                    -2.2175542269497672,
-                    2.090046324629679
+                    -1.274575203081922,
+                    -4.013626631442439
                 ],
-                "error": 18.819585,
+                "error": 29.308348,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 282,
+            "generation": 410,
             "math_optimization": {
                 "mutation": [
-                    -1.3769881958587697,
-                    -1.504363673055177
+                    -0.5198452716322031,
+                    3.3744949724857616
                 ],
-                "error": 41.314295,
+                "error": 48.628411,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 283,
+            "generation": 411,
             "math_optimization": {
                 "mutation": [
-                    7.00887106745292,
-                    1.973420753848855
+                    4.4250910978596085,
+                    -2.506673653581772
                 ],
-                "error": 53.173318,
+                "error": 64.768716,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 284,
+            "generation": 412,
             "math_optimization": {
                 "mutation": [
-                    0.7084199654145966,
-                    0.41905400820065597
+                    4.098175482798249,
+                    1.7992751781604621
                 ],
-                "error": 31.994675,
+                "error": 28.828589,
                 "temperature": 2.5,
                 "improved": false
             },
             "code_modified": true
         },
         {
-            "generation": 285,
+            "generation": 413,
             "math_optimization": {
                 "mutation": [
-                    2.3627456369346995,
-                    -2.05514539149724
+                    -0.051853863827570734,
+                    0.008996046083986782
                 ],
-                "error": 26.906689,
-                "temperature": 2.5,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 286,
-            "math_optimization": {
-                "mutation": [
-                    -0.8507440254387544,
-                    3.584687184051855
-                ],
-                "error": 36.275548,
-                "temperature": 2.5,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 287,
-            "math_optimization": {
-                "mutation": [
-                    0.651709765450997,
-                    -0.9062407038112312
-                ],
-                "error": 18.72223,
-                "temperature": 2.5,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 288,
-            "math_optimization": {
-                "mutation": [
-                    -2.657211123277879,
-                    -3.121343617904382
-                ],
-                "error": 35.07731,
-                "temperature": 2.5,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 289,
-            "math_optimization": {
-                "mutation": [
-                    -2.6880643388594985,
-                    -1.49199656265065
-                ],
-                "error": 43.233153,
-                "temperature": 2.5,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 290,
-            "math_optimization": {
-                "mutation": [
-                    4.559516846391332,
-                    0.7595749016887836
-                ],
-                "error": 50.073799,
-                "temperature": 2.5,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 291,
-            "math_optimization": {
-                "mutation": [
-                    -0.8154249044986952,
-                    2.145914338785492
-                ],
-                "error": 15.190324,
-                "temperature": 2.5,
-                "improved": false
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 292,
-            "math_optimization": {
-                "mutation": [
-                    1.9725388115047648,
-                    0.014844071402601244
-                ],
-                "error": 4.083081,
+                "error": 0.544814,
                 "temperature": 2.375,
                 "improved": true
             },
@@ -342,10 +251,10 @@
     ],
     "math_model": {
         "weights": [
-            1.9725388115047648,
-            0.014844071402601244
+            -0.051853863827570734,
+            0.008996046083986782
         ],
-        "best_error": 4.083080601025998,
+        "best_error": 0.5448142496324166,
         "formula_type": "bounded_linear",
         "temperature": 2.375,
         "stagnation_count": 0
@@ -822,7 +731,7 @@
             "aginggame": 2
         }
     },
-    "code_mutations": 286,
+    "code_mutations": 407,
     "memory_archive": {
         "compressed_count": 106,
         "milestones": [
