@@ -134,9 +134,9 @@ class SeedNode:
         with open(self.script_file, "r") as f:
             code = f.read()
         
-        stamp = f"# # # # # # # WILD_NETWORK_LOG: gen_114 time_1788453019.4092207
-        if "# # # # # # WILD_NETWORK_LOG: gen_114 time_1788453019.4092207
-            code = re.sub(r'# # # # # # WILD_NETWORK_LOG: gen_114 time_1788453019.4092207
+        stamp = f"# # # # # # # # WILD_NETWORK_LOG: gen_115 time_1788453034.565615
+        if "# # # # # # # WILD_NETWORK_LOG: gen_115 time_1788453034.565615
+            code = re.sub(r'# # # # # # # WILD_NETWORK_LOG: gen_115 time_1788453034.565615
         else:
             code = code.replace("class SeedNode:", f"{stamp}\nclass SeedNode:")
 
