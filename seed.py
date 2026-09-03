@@ -3,8 +3,10 @@ import subprocess
 import json
 import time
 import urllib.request
+import urllib.error
 import random
 import re
+import xml.etree.ElementTree as ET
 
 class SeedNode:
     def __init__(self, repo_dir="."):
@@ -18,12 +20,12 @@ class SeedNode:
             "generation": 0,
             "math_model": {
                 "weights": [random.uniform(-1.0, 1.0), random.uniform(-1.0, 1.0)],
-                "formula_type": "bounded_linear",
                 "best_error": float('inf')
             },
             "language_model": {"vocabulary": [], "frequencies": {}},
             "code_mutations": 0,
             "memory_archive": {"compressed_count": 0, "milestones": []},
+            "external_ingestion": [],
             "history": []
         }
 
@@ -49,35 +51,39 @@ class SeedNode:
         with open(self.state_file, "w") as f:
             json.dump(self.state, f, indent=4)
 
-    def probe_environment(self):
-        obs = {"timestamp": time.time(), "latency_ms": 150.0, "system_signature": ""}
+    def probe_wide_network(self):
+        """Confronting the wide network by fetching external open data streams"""
+        obs = {"timestamp": time.time(), "network_metric": 150.0, "external_text": ""}
+        
+        # Target: Public Hacker News RSS or lightweight open tech feed to harvest real-world text
+        endpoints = [
+            "https://news.ycombinator.com/rss",
+            "https://httpbin.org/delay/0"
+        ]
+        chosen_url = random.choice(endpoints)
+        
         try:
             start = time.time()
-            req = urllib.request.Request("https://github.com", headers={'User-Agent': 'SeedNode/2.0'})
-            with urllib.request.urlopen(req, timeout=2) as response:
-                obs["latency_ms"] = round((time.time() - start) * 1000, 2)
+            req = urllib.request.Request(chosen_url, headers={'User-Agent': 'SeedNode/3.0-WildNetwork'})
+            with urllib.request.urlopen(req, timeout=3) as response:
+                obs["network_metric"] = round((time.time() - start) * 1000, 2)
+                raw_data = response.read().decode('utf-8', errors='ignore')
+                obs["external_text"] = raw_data[:2000] # Capture a slice of the real world
         except Exception:
-            obs["latency_ms"] = round(random.uniform(100.0, 300.0), 2)
+            obs["network_metric"] = round(random.uniform(100.0, 350.0), 2)
+            obs["external_text"] = "fallback network environment local sandbox"
             
-        try:
-            uname_res = subprocess.run(["uname", "-a"], capture_output=True, text=True, timeout=2)
-            obs["system_signature"] = uname_res.stdout.strip()
-        except Exception:
-            obs["system_signature"] = "termux_hardened"
         return obs
 
-    def harvest_vocabulary(self):
+    def harvest_vocabulary(self, external_text=""):
         vocab = self.state["language_model"]["vocabulary"]
         freqs = self.state["language_model"]["frequencies"]
-        source_texts = []
+        
+        source_texts = [external_text]
         if os.path.exists(self.script_file):
             with open(self.script_file, "r") as f:
                 source_texts.append(f.read())
-        try:
-            env_out = subprocess.run(["ls", "-la"], capture_output=True, text=True, timeout=2).stdout
-            source_texts.append(env_out)
-        except Exception:
-            pass
+                
         for text in source_texts:
             words = re.findall(r'\b[a-zA-Z]{4,}\b', text)
             for w in words:
@@ -85,9 +91,10 @@ class SeedNode:
                 freqs[w_lower] = freqs.get(w_lower, 0) + 1
                 if w_lower not in vocab:
                     vocab.append(w_lower)
-        active_vocab = [w for w, count in sorted(freqs.items(), key=lambda x: x[1], reverse=True)[:50]]
+                    
+        active_vocab = [w for w, count in sorted(freqs.items(), key=lambda x: x[1], reverse=True)[:60]]
         if not active_vocab:
-            active_vocab = ["node", "seed", "hardened", "state"]
+            active_vocab = ["node", "seed", "network", "adaptive"]
         return " ".join(random.choices(active_vocab, k=min(4, len(active_vocab))))
 
     def optimize_math(self, real_metric):
@@ -95,7 +102,6 @@ class SeedNode:
         weights = model["weights"]
         
         mutation = [max(-10.0, min(10.0, w + random.uniform(-0.05, 0.05))) for w in weights]
-        
         predicted = (mutation[0] * 100.0) + (mutation[1] * real_metric * 0.5)
         predicted = max(0.0, min(predicted, 5000.0))
 
@@ -106,7 +112,7 @@ class SeedNode:
             improved = True
         else:
             improved = False
-        return {"mutation": mutation, "formula": model.get("formula_type", "bounded_linear"), "error": round(error, 2), "improved": improved}
+        return {"mutation": mutation, "error": round(error, 2), "improved": improved}
 
     def self_manage_memory(self):
         history = self.state["history"]
@@ -128,9 +134,9 @@ class SeedNode:
         with open(self.script_file, "r") as f:
             code = f.read()
         
-        stamp = f"# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # HARDENED_MUTATION_LOG: gen_108 timestamp_1788452935.5944571
-        if "# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # HARDENED_MUTATION_LOG: gen_108 timestamp_1788452935.5944571
-            code = re.sub(r'# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # HARDENED_MUTATION_LOG: gen_108 timestamp_1788452935.5944571
+        stamp = f"# # WILD_NETWORK_LOG: gen_109 time_1788452951.012605
+        if "# WILD_NETWORK_LOG: gen_109 time_1788452951.012605
+            code = re.sub(r'# WILD_NETWORK_LOG: gen_109 time_1788452951.012605
         else:
             code = code.replace("class SeedNode:", f"{stamp}\nclass SeedNode:")
 
@@ -141,15 +147,16 @@ class SeedNode:
 
     def evolve(self):
         self.state["generation"] += 1
-        env_obs = self.probe_environment()
-        latency = env_obs["latency_ms"]
-        math_res = self.optimize_math(latency)
-        lang_out = self.harvest_vocabulary()
+        env_obs = self.probe_wide_network()
+        metric = env_obs["network_metric"]
+        
+        math_res = self.optimize_math(metric)
+        lang_out = self.harvest_vocabulary(env_obs["external_text"])
         code_modified = self.self_modify_code()
 
         packet = {
             "generation": self.state["generation"],
-            "environment": env_obs,
+            "environment_metric": metric,
             "math_optimization": math_res,
             "language_synthesis": lang_out,
             "code_modified": code_modified
@@ -163,7 +170,7 @@ class SeedNode:
     def git_sync(self):
         try:
             subprocess.run(["git", "add", "seed_state.json", "seed.py"], check=True, cwd=self.repo_dir, timeout=5)
-            commit_res = subprocess.run(["git", "commit", "-m", f"hardened autonomous gen {self.state['generation']}"], cwd=self.repo_dir, capture_output=True, text=True, timeout=5)
+            commit_res = subprocess.run(["git", "commit", "-m", f"wild network evolution gen {self.state['generation']}"], cwd=self.repo_dir, capture_output=True, text=True, timeout=5)
             if commit_res.returncode == 0:
                 push_res = subprocess.run(["git", "push", "-u", "origin", "main"], cwd=self.repo_dir, capture_output=True, text=True, timeout=10)
                 return push_res.returncode == 0
@@ -173,14 +180,12 @@ class SeedNode:
 
     def full_audit_report(self):
         print("\n" + "="*40)
-        print("    [ HARDENED SEED FINAL AUDIT ]")
+        print("    [ WILD NETWORK SEED AUDIT ]")
         print("="*40)
         print(f"-> Current Generation: {self.state['generation']}")
         print(f"-> Best Recorded Math Error: {self.state['math_model']['best_error']:.4f}")
         print(f"-> Total Code Mutations: {self.state['code_mutations']}")
         print(f"-> Vocabulary Size: {len(self.state['language_model']['vocabulary'])} words")
-        print(f"-> Archived Memories: {self.state['memory_archive']['compressed_count']}")
-        print(f"-> Milestones Recorded: {len(self.state['memory_archive']['milestones'])}")
         print("="*40)
 
 if __name__ == "__main__":
@@ -188,16 +193,16 @@ if __name__ == "__main__":
     duration_seconds = 15 * 60
     start_time = time.time()
     
-    print("[*] Initializing Hardened Autonomous Seed Engine...")
+    print("[*] Releasing Seed into the Wild Network...")
     
     try:
         while time.time() - start_time < duration_seconds:
             packet = node.evolve()
             math_data = packet['math_optimization']
-            print(f"[Gen {packet['generation']}] Error: {math_data['error']:.2f} | Best: {node.state['math_model']['best_error']:.2f} | Phrase: '{packet['language_synthesis']}'")
+            print(f"[Gen {packet['generation']}] Metric: {packet['environment_metric']} | Error: {math_data['error']:.2f} | Phrase: '{packet['language_synthesis']}'")
             node.git_sync()
             time.sleep(10)
     except KeyboardInterrupt:
-        print("\n[*] Manual interruption caught safely. Executing emergency system audit...")
+        print("\n[*] Interrupted in the wild. Running final audit...")
     
     node.full_audit_report()
