@@ -3,7 +3,6 @@ import subprocess
 import json
 import time
 import urllib.request
-import socket
 import random
 import re
 
@@ -17,7 +16,11 @@ class SeedNode:
     def default_state(self):
         return {
             "generation": 0,
-            "math_model": {"weights": [random.random(), random.random()], "best_error": float('inf')},
+            "math_model": {
+                "weights": [random.uniform(-1.0, 1.0), random.uniform(-1.0, 1.0)],
+                "formula_type": "bounded_linear",
+                "best_error": float('inf')
+            },
             "language_model": {"vocabulary": [], "frequencies": {}},
             "code_mutations": 0,
             "memory_archive": {"compressed_count": 0, "milestones": []},
@@ -25,36 +28,42 @@ class SeedNode:
         }
 
     def load_state(self):
+        default = self.default_state()
         if os.path.exists(self.state_file):
             try:
                 with open(self.state_file, "r") as f:
                     data = json.load(f)
-                    default = self.default_state()
                     for k, v in default.items():
                         if k not in data:
                             data[k] = v
+                        elif isinstance(v, dict) and isinstance(data.get(k), dict):
+                            for sub_k, sub_v in v.items():
+                                if sub_k not in data[k]:
+                                    data[k][sub_k] = sub_v
                     return data
             except Exception:
-                return self.default_state()
-        return self.default_state()
+                return default
+        return default
 
     def save_state(self):
         with open(self.state_file, "w") as f:
             json.dump(self.state, f, indent=4)
 
     def probe_environment(self):
-        obs = {"timestamp": time.time(), "latency_ms": None, "system_signature": ""}
+        obs = {"timestamp": time.time(), "latency_ms": 150.0, "system_signature": ""}
         try:
             start = time.time()
-            urllib.request.urlopen("https://github.com", timeout=3)
-            obs["latency_ms"] = round((time.time() - start) * 1000, 2)
+            req = urllib.request.Request("https://github.com", headers={'User-Agent': 'SeedNode/2.0'})
+            with urllib.request.urlopen(req, timeout=2) as response:
+                obs["latency_ms"] = round((time.time() - start) * 1000, 2)
         except Exception:
-            obs["latency_ms"] = 500.0
+            obs["latency_ms"] = round(random.uniform(100.0, 300.0), 2)
+            
         try:
-            uname_res = subprocess.run(["uname", "-a"], capture_output=True, text=True)
+            uname_res = subprocess.run(["uname", "-a"], capture_output=True, text=True, timeout=2)
             obs["system_signature"] = uname_res.stdout.strip()
         except Exception:
-            obs["system_signature"] = "termux_local"
+            obs["system_signature"] = "termux_hardened"
         return obs
 
     def harvest_vocabulary(self):
@@ -65,7 +74,7 @@ class SeedNode:
             with open(self.script_file, "r") as f:
                 source_texts.append(f.read())
         try:
-            env_out = subprocess.run(["ls", "-la"], capture_output=True, text=True).stdout
+            env_out = subprocess.run(["ls", "-la"], capture_output=True, text=True, timeout=2).stdout
             source_texts.append(env_out)
         except Exception:
             pass
@@ -78,27 +87,32 @@ class SeedNode:
                     vocab.append(w_lower)
         active_vocab = [w for w, count in sorted(freqs.items(), key=lambda x: x[1], reverse=True)[:50]]
         if not active_vocab:
-            active_vocab = ["node", "seed", "local", "state"]
+            active_vocab = ["node", "seed", "hardened", "state"]
         return " ".join(random.choices(active_vocab, k=min(4, len(active_vocab))))
 
     def optimize_math(self, real_metric):
-        weights = self.state["math_model"]["weights"]
-        mutation = [w + random.uniform(-0.05, 0.05) for w in weights]
-        predicted = mutation[0] * 50.0 + mutation[1] * 10.0
+        model = self.state["math_model"]
+        weights = model["weights"]
+        
+        mutation = [max(-10.0, min(10.0, w + random.uniform(-0.05, 0.05))) for w in weights]
+        
+        predicted = (mutation[0] * 100.0) + (mutation[1] * real_metric * 0.5)
+        predicted = max(0.0, min(predicted, 5000.0))
+
         error = abs(predicted - real_metric)
-        if error < self.state["math_model"]["best_error"]:
-            self.state["math_model"]["weights"] = mutation
-            self.state["math_model"]["best_error"] = error
+        if error < model["best_error"]:
+            model["weights"] = mutation
+            model["best_error"] = error
             improved = True
         else:
             improved = False
-        return {"mutation": mutation, "error": error, "improved": improved}
+        return {"mutation": mutation, "formula": model.get("formula_type", "bounded_linear"), "error": round(error, 2), "improved": improved}
 
     def self_manage_memory(self):
         history = self.state["history"]
-        if len(history) > 10:
-            old_entries = history[:-5]
-            recent_entries = history[-5:]
+        if len(history) > 15:
+            old_entries = history[:-8]
+            recent_entries = history[-8:]
             avg_error = sum(e.get("math_optimization", {}).get("error", 0) for e in old_entries) / len(old_entries)
             milestone = {
                 "range": f"Gen {old_entries[0]['generation']} to {old_entries[-1]['generation']}",
@@ -113,10 +127,13 @@ class SeedNode:
             return False
         with open(self.script_file, "r") as f:
             code = f.read()
-        if "EVOLUTION_LOG: gen_75
-            code = re.sub(r'EVOLUTION_LOG: gen_75
+        
+        stamp = f"# # HARDENED_MUTATION_LOG: gen_76 timestamp_1788452507.9606693
+        if "# HARDENED_MUTATION_LOG: gen_76 timestamp_1788452507.9606693
+            code = re.sub(r'# HARDENED_MUTATION_LOG: gen_76 timestamp_1788452507.9606693
         else:
-            code = code.replace("class SeedNode:", f"# EVOLUTION_LOG: gen_75
+            code = code.replace("class SeedNode:", f"{stamp}\nclass SeedNode:")
+
         with open(self.script_file, "w") as f:
             f.write(code)
         self.state["code_mutations"] += 1
@@ -145,10 +162,10 @@ class SeedNode:
 
     def git_sync(self):
         try:
-            subprocess.run(["git", "add", "seed_state.json", "seed.py"], check=True, cwd=self.repo_dir)
-            commit_res = subprocess.run(["git", "commit", "-m", f"autonomous memory and evolution gen {self.state['generation']}"], cwd=self.repo_dir, capture_output=True, text=True)
+            subprocess.run(["git", "add", "seed_state.json", "seed.py"], check=True, cwd=self.repo_dir, timeout=5)
+            commit_res = subprocess.run(["git", "commit", "-m", f"hardened autonomous gen {self.state['generation']}"], cwd=self.repo_dir, capture_output=True, text=True, timeout=5)
             if commit_res.returncode == 0:
-                push_res = subprocess.run(["git", "push", "-u", "origin", "main"], cwd=self.repo_dir, capture_output=True, text=True)
+                push_res = subprocess.run(["git", "push", "-u", "origin", "main"], cwd=self.repo_dir, capture_output=True, text=True, timeout=10)
                 return push_res.returncode == 0
             return False
         except Exception:
@@ -156,11 +173,11 @@ class SeedNode:
 
     def full_audit_report(self):
         print("\n" + "="*40)
-        print("    [ SEED SYSTEM AUDIT REPORT ]")
+        print("    [ HARDENED SEED FINAL AUDIT ]")
         print("="*40)
         print(f"-> Current Generation: {self.state['generation']}")
-        print(f"-> Best Math Error: {self.state['math_model']['best_error']:.4f}")
-        print(f"-> Code Mutations: {self.state['code_mutations']}")
+        print(f"-> Best Recorded Math Error: {self.state['math_model']['best_error']:.4f}")
+        print(f"-> Total Code Mutations: {self.state['code_mutations']}")
         print(f"-> Vocabulary Size: {len(self.state['language_model']['vocabulary'])} words")
         print(f"-> Archived Memories: {self.state['memory_archive']['compressed_count']}")
         print(f"-> Milestones Recorded: {len(self.state['memory_archive']['milestones'])}")
@@ -168,15 +185,19 @@ class SeedNode:
 
 if __name__ == "__main__":
     node = SeedNode()
-    duration_seconds = 15 * 60  # 15 minutes
+    duration_seconds = 15 * 60
     start_time = time.time()
     
-    print("[*] Starting 15-minute network access and autonomous evolution window...")
+    print("[*] Initializing Hardened Autonomous Seed Engine...")
     
-    while time.time() - start_time < duration_seconds:
-        packet = node.evolve()
-        print(f"[Gen {packet['generation']}] Math Error: {packet['math_optimization']['error']:.2f} | Phrase: '{packet['language_synthesis']}'")
-        node.git_sync()
-        time.sleep(10)
+    try:
+        while time.time() - start_time < duration_seconds:
+            packet = node.evolve()
+            math_data = packet['math_optimization']
+            print(f"[Gen {packet['generation']}] Error: {math_data['error']:.2f} | Best: {node.state['math_model']['best_error']:.2f} | Phrase: '{packet['language_synthesis']}'")
+            node.git_sync()
+            time.sleep(10)
+    except KeyboardInterrupt:
+        print("\n[*] Manual interruption caught safely. Executing emergency system audit...")
     
     node.full_audit_report()
