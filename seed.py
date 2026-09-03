@@ -17,9 +17,9 @@ class SeedNode:
         return {
             "generation": 0,
             "math_model": {
-                "weights": [random.uniform(-2.0, 2.0) for _ in range(4)],
+                "weights": [random.uniform(-0.5, 0.5) for _ in range(4)],
                 "best_error": float('inf'),
-                "temperature": 0.5,
+                "temperature": 0.2,
                 "stagnation_count": 0
             },
             "code_mutations": 0,
@@ -62,7 +62,7 @@ class SeedNode:
         weights = model["weights"]
         temp = model["temperature"]
         
-        # Fine-tuned simulated annealing mutation with controlled micro-steps
+        # Micro-step Gaussian mutation scaled by current deep temperature
         mutation = [w + random.gauss(0, temp) for w in weights]
         error = self.rastrigin_fitness(mutation)
         
@@ -71,13 +71,14 @@ class SeedNode:
             model["weights"] = mutation
             model["best_error"] = error
             model["stagnation_count"] = 0
-            model["temperature"] = max(0.001, model["temperature"] * 0.97)
+            # Gradual geometric cooling toward absolute zero
+            model["temperature"] = max(0.0001, model["temperature"] * 0.985)
             improved = True
         else:
             model["stagnation_count"] += 1
-            # Controlled micro-reheating to prevent violent jumps (max cap 0.4 instead of 2.5)
-            if model["stagnation_count"] > 20:
-                model["temperature"] = min(0.4, model["temperature"] * 1.3)
+            # Deep patience threshold before micro-reheating, capped safely at 0.15
+            if model["stagnation_count"] > 60:
+                model["temperature"] = min(0.15, model["temperature"] * 1.2)
                 model["stagnation_count"] = 0
                 
         return {"mutation": mutation, "error": round(error, 6), "temperature": round(model["temperature"], 4), "improved": improved}
@@ -92,7 +93,7 @@ class SeedNode:
             class ASTMutator(ast.NodeTransformer):
                 def visit_Constant(self, node):
                     if isinstance(node.value, float) and 0.0 < node.value < 1.0:
-                        node.value = round(node.value * random.uniform(0.98, 1.02), 6)
+                        node.value = round(node.value * random.uniform(0.99, 1.01), 6)
                     return node
 
             mutated_tree = ASTMutator().visit(tree)
@@ -126,7 +127,7 @@ class SeedNode:
             return False
         try:
             subprocess.run(["git", "add", "seed_state.json", "seed.py"], check=True, cwd=self.repo_dir, timeout=5)
-            msg = f"fine-tune milestone gen {self.state['generation']} best_err {self.state['math_model']['best_error']:.6f}"
+            msg = f"deep-converge milestone gen {self.state['generation']} best_err {self.state['math_model']['best_error']:.6f}"
             commit_res = subprocess.run(["git", "commit", "-m", msg], cwd=self.repo_dir, capture_output=True, text=True, timeout=5)
             if commit_res.returncode == 0:
                 subprocess.run(["git", "push", "origin", "main"], cwd=self.repo_dir, capture_output=True, text=True, timeout=10)
@@ -137,7 +138,7 @@ class SeedNode:
 
     def full_audit_report(self):
         print("\n" + "="*40)
-        print("    [ FINE-TUNED SEED FINAL AUDIT ]")
+        print("    [ DEEP CONVERGENCE FINAL AUDIT ]")
         print("="*40)
         print(f"-> Final Generation: {self.state['generation']}")
         print(f"-> Absolute Best Error: {self.state['math_model']['best_error']:.6f}")
@@ -150,7 +151,7 @@ if __name__ == "__main__":
     duration_seconds = 15 * 60
     start_time = time.time()
     
-    print("[*] Initializing Fine-Tuned Simulated Annealing Engine...")
+    print("[*] Initializing Deep Convergence Annealing Engine...")
     
     try:
         while time.time() - start_time < duration_seconds:
