@@ -1,238 +1,6 @@
 {
-    "generation": 129,
+    "generation": 150,
     "history": [
-        {
-            "generation": 107,
-            "environment": {
-                "timestamp": 1788452922.5880759,
-                "latency_ms": 447.84,
-                "system_signature": "Linux localhost 5.10.236-android12-9-00006-g71f3aedc8b92-ab14427738 #1 SMP PREEMPT Wed Nov 12 20:20:48 UTC 2025 aarch64 Android"
-            },
-            "math_optimization": {
-                "mutation": [
-                    0.4622180771062846,
-                    0.35103214264679344
-                ],
-                "formula": "bounded_linear",
-                "error": 323.02,
-                "improved": false
-            },
-            "language_synthesis": "stdout false except round",
-            "code_modified": true
-        },
-        {
-            "generation": 108,
-            "environment": {
-                "timestamp": 1788452935.1792796,
-                "latency_ms": 387.68,
-                "system_signature": "Linux localhost 5.10.236-android12-9-00006-g71f3aedc8b92-ab14427738 #1 SMP PREEMPT Wed Nov 12 20:20:48 UTC 2025 aarch64 Android"
-            },
-            "math_optimization": {
-                "mutation": [
-                    0.46678347342143167,
-                    0.36310351721702605
-                ],
-                "formula": "bounded_linear",
-                "error": 270.62,
-                "improved": false
-            },
-            "language_synthesis": "freqs latency items default",
-            "code_modified": true
-        },
-        {
-            "generation": 109,
-            "environment_metric": 667.34,
-            "math_optimization": {
-                "mutation": [
-                    0.5226082138045307,
-                    0.3752770548887227
-                ],
-                "error": 489.86,
-                "improved": false
-            },
-            "language_synthesis": "self returncode json append",
-            "code_modified": true
-        },
-        {
-            "generation": 110,
-            "environment_metric": 744.16,
-            "math_optimization": {
-                "mutation": [
-                    0.468035755796921,
-                    0.36725234340016255
-                ],
-                "error": 560.71,
-                "improved": false
-            },
-            "language_synthesis": "items random mutation default",
-            "code_modified": true
-        },
-        {
-            "generation": 111,
-            "environment_metric": 3002.19,
-            "math_optimization": {
-                "mutation": [
-                    0.4624684385737856,
-                    0.30269265543724966
-                ],
-                "error": 2501.57,
-                "improved": false
-            },
-            "language_synthesis": "exists words subprocess default",
-            "code_modified": true
-        },
-        {
-            "generation": 112,
-            "environment_metric": 797.97,
-            "math_optimization": {
-                "mutation": [
-                    0.49611843772094233,
-                    0.33469426656157036
-                ],
-                "error": 614.82,
-                "improved": false
-            },
-            "language_synthesis": "round true vocabulary data",
-            "code_modified": true
-        },
-        {
-            "generation": 113,
-            "environment_metric": 1684.23,
-            "math_optimization": {
-                "mutation": [
-                    0.4730841182633013,
-                    0.3176701963384379
-                ],
-                "error": 1369.41,
-                "improved": false
-            },
-            "language_synthesis": "math false json improved",
-            "code_modified": true
-        },
-        {
-            "generation": 114,
-            "environment_metric": 939.32,
-            "math_optimization": {
-                "mutation": [
-                    0.49282574410199775,
-                    0.35701197379778826
-                ],
-                "error": 722.36,
-                "improved": false
-            },
-            "language_synthesis": "path latency words default",
-            "code_modified": true
-        },
-        {
-            "generation": 115,
-            "environment_metric": 2756.87,
-            "math_optimization": {
-                "mutation": [
-                    0.47368347669668565,
-                    0.32888488588052234
-                ],
-                "error": 2256.16,
-                "improved": false
-            },
-            "language_synthesis": "import mutation packet history",
-            "code_modified": true
-        },
-        {
-            "generation": 116,
-            "environment_metric": 2558.48,
-            "math_optimization": {
-                "mutation": [
-                    0.4867316968689747,
-                    0.3197202154336784
-                ],
-                "error": 2100.81,
-                "improved": false
-            },
-            "language_synthesis": "autonomous text urllib print",
-            "code_modified": true
-        },
-        {
-            "generation": 117,
-            "environment_metric": 768.1,
-            "math_optimization": {
-                "mutation": [
-                    0.5333879758103545,
-                    0.33351371685579245
-                ],
-                "error": 586.68,
-                "improved": false
-            },
-            "language_synthesis": "data model drwx frequencies",
-            "code_modified": true
-        },
-        {
-            "generation": 118,
-            "environment_metric": 736.35,
-            "math_optimization": {
-                "mutation": [
-                    0.49897181208216007,
-                    0.3904726673150277
-                ],
-                "error": 542.69,
-                "improved": false
-            },
-            "language_synthesis": "except autonomous start node",
-            "code_modified": true
-        },
-        {
-            "generation": 119,
-            "environment_metric": 723.9,
-            "math_optimization": {
-                "mutation": [
-                    0.536975493889165,
-                    0.38637293990600524
-                ],
-                "error": 530.35,
-                "improved": false
-            },
-            "language_synthesis": "return request error stdout",
-            "code_modified": true
-        },
-        {
-            "generation": 120,
-            "environment_metric": 644.11,
-            "math_optimization": {
-                "mutation": [
-                    0.5444096864274349,
-                    0.3238209710563016
-                ],
-                "error": 485.38,
-                "improved": false
-            },
-            "language_synthesis": "latency timeout words subprocess",
-            "code_modified": true
-        },
-        {
-            "generation": 121,
-            "math_optimization": {
-                "mutation": [
-                    0.8826842794936034,
-                    0.47406250108185694
-                ],
-                "error": 23.467266,
-                "temperature": 0.95,
-                "improved": true
-            },
-            "code_modified": true
-        },
-        {
-            "generation": 122,
-            "math_optimization": {
-                "mutation": [
-                    -0.5800689925365188,
-                    -0.5757587842099192
-                ],
-                "error": 38.317276,
-                "temperature": 0.95,
-                "improved": false
-            },
-            "code_modified": true
-        },
         {
             "generation": 123,
             "math_optimization": {
@@ -323,16 +91,289 @@
                 "improved": true
             },
             "code_modified": true
+        },
+        {
+            "generation": 130,
+            "math_optimization": {
+                "mutation": [
+                    0.14580015853054618,
+                    3.1463949565160805
+                ],
+                "error": 17.77221,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 131,
+            "math_optimization": {
+                "mutation": [
+                    -2.0814078561200713,
+                    3.287676542534271
+                ],
+                "error": 28.766204,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 132,
+            "math_optimization": {
+                "mutation": [
+                    -0.18714792975668182,
+                    2.744877468743447
+                ],
+                "error": 24.043917,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 133,
+            "math_optimization": {
+                "mutation": [
+                    0.04481279923766346,
+                    3.8219856111071246
+                ],
+                "error": 20.633026,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 134,
+            "math_optimization": {
+                "mutation": [
+                    -1.0541507974677422,
+                    2.6321217737819476
+                ],
+                "error": 25.360234,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 135,
+            "math_optimization": {
+                "mutation": [
+                    -0.47477199798415703,
+                    3.5073132808254224
+                ],
+                "error": 52.390732,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 136,
+            "math_optimization": {
+                "mutation": [
+                    -2.07109148210148,
+                    1.4773763577319008
+                ],
+                "error": 27.352342,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 137,
+            "math_optimization": {
+                "mutation": [
+                    -0.7414969785428493,
+                    3.0909382136912873
+                ],
+                "error": 22.226177,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 138,
+            "math_optimization": {
+                "mutation": [
+                    -1.2187126750965471,
+                    2.2528786308868076
+                ],
+                "error": 24.788379,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 139,
+            "math_optimization": {
+                "mutation": [
+                    -2.539789004357855,
+                    2.4632202740926243
+                ],
+                "error": 51.941267,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 140,
+            "math_optimization": {
+                "mutation": [
+                    -0.05245878921032232,
+                    2.4951379903827124
+                ],
+                "error": 26.762108,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 141,
+            "math_optimization": {
+                "mutation": [
+                    0.4781517557698127,
+                    2.2354385006631716
+                ],
+                "error": 34.218088,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 142,
+            "math_optimization": {
+                "mutation": [
+                    0.28983875716967344,
+                    2.5161951394195974
+                ],
+                "error": 38.840601,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 143,
+            "math_optimization": {
+                "mutation": [
+                    -1.8609278251438144,
+                    3.325942816479465
+                ],
+                "error": 32.698505,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 144,
+            "math_optimization": {
+                "mutation": [
+                    -2.287666182913415,
+                    2.973789623327463
+                ],
+                "error": 26.556746,
+                "temperature": 0.8145,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 145,
+            "math_optimization": {
+                "mutation": [
+                    -1.341725558112362,
+                    2.5198507477919727
+                ],
+                "error": 43.521687,
+                "temperature": 1.4661,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 146,
+            "math_optimization": {
+                "mutation": [
+                    -0.7715758814145788,
+                    3.623857254998941
+                ],
+                "error": 39.497823,
+                "temperature": 1.4661,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 147,
+            "math_optimization": {
+                "mutation": [
+                    -0.6548192415741474,
+                    2.3997598940746157
+                ],
+                "error": 39.899153,
+                "temperature": 1.4661,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 148,
+            "math_optimization": {
+                "mutation": [
+                    -1.5088023060057383,
+                    5.252509548794123
+                ],
+                "error": 60.007724,
+                "temperature": 1.4661,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 149,
+            "math_optimization": {
+                "mutation": [
+                    -1.678250197858528,
+                    2.5872739502542266
+                ],
+                "error": 42.401338,
+                "temperature": 1.4661,
+                "improved": false
+            },
+            "code_modified": true
+        },
+        {
+            "generation": 150,
+            "math_optimization": {
+                "mutation": [
+                    -0.9993601280294913,
+                    2.7695953749089144
+                ],
+                "error": 17.441355,
+                "temperature": 1.3928,
+                "improved": true
+            },
+            "code_modified": true
         }
     ],
     "math_model": {
         "weights": [
-            -1.1523424981976707,
-            3.1081610783990685
+            -0.9993601280294913,
+            2.7695953749089144
         ],
-        "best_error": 17.452146045900058,
+        "best_error": 17.441354586784527,
         "formula_type": "bounded_linear",
-        "temperature": 0.8145062499999999,
+        "temperature": 1.3928056874999997,
         "stagnation_count": 0
     },
     "language_model": {
@@ -807,7 +848,7 @@
             "aginggame": 2
         }
     },
-    "code_mutations": 123,
+    "code_mutations": 144,
     "memory_archive": {
         "compressed_count": 106,
         "milestones": [
