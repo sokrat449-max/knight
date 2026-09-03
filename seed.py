@@ -113,11 +113,10 @@ class SeedNode:
             return False
         with open(self.script_file, "r") as f:
             code = f.read()
-        stamp = f"# Autonomous Evolution Stamp: Gen {self.state['generation']} at {time.time()}"
-        if "EVOLUTION_LOG: gen_14
-            code = re.sub(r'EVOLUTION_LOG: gen_14
+        if "EVOLUTION_LOG: gen_15
+            code = re.sub(r'EVOLUTION_LOG: gen_15
         else:
-            code = code.replace("class SeedNode:", f"# EVOLUTION_LOG: gen_14
+            code = code.replace("class SeedNode:", f"# EVOLUTION_LOG: gen_15
         with open(self.script_file, "w") as f:
             f.write(code)
         self.state["code_mutations"] += 1
@@ -147,7 +146,7 @@ class SeedNode:
     def git_sync(self):
         try:
             subprocess.run(["git", "add", "seed_state.json", "seed.py"], check=True, cwd=self.repo_dir)
-            commit_res = subprocess.run(["git", "commit", "-m", f"15-min autonomous audit gen {self.state['generation']}"], cwd=self.repo_dir, capture_output=True, text=True)
+            commit_res = subprocess.run(["git", "commit", "-m", f"autonomous memory and evolution gen {self.state['generation']}"], cwd=self.repo_dir, capture_output=True, text=True)
             if commit_res.returncode == 0:
                 push_res = subprocess.run(["git", "push", "-u", "origin", "main"], cwd=self.repo_dir, capture_output=True, text=True)
                 return push_res.returncode == 0
@@ -156,37 +155,28 @@ class SeedNode:
             return False
 
     def full_audit_report(self):
-        """إجراء فحص كامل وشامل لحالة الكيان بعد نافذة النفاذ الشبكي"""
         print("\n" + "="*40)
-        print("    [ تقرير الفحص الشامل للكيان - SEED AUDIT ]")
+        print("    [ SEED SYSTEM AUDIT REPORT ]")
         print("="*40)
-        print(f"-> الجيل الحالي المصلح: {self.state['generation']}")
-        print(f"-> أفضل خطأ رياضي مسجل: {self.state['math_model']['best_error']:.4f}")
-        print(f"-> إجمالي طفرات الشيفرة (Code Mutations): {self.state['code_mutations']}")
-        print(f"-> حجم المفردات المكتسبة: {len(self.state['language_model']['vocabulary'])} كلمة")
-        print(f"-> السجلات المضغوطة بالذاكرة الأرشيفية: {self.state['memory_archive']['compressed_count']}")
-        print(f"-> عدد المعالم المؤرشفة (Milestones): {len(self.state['memory_archive']['milestones'])}")
+        print(f"-> Current Generation: {self.state['generation']}")
+        print(f"-> Best Math Error: {self.state['math_model']['best_error']:.4f}")
+        print(f"-> Code Mutations: {self.state['code_mutations']}")
+        print(f"-> Vocabulary Size: {len(self.state['language_model']['vocabulary'])} words")
+        print(f"-> Archived Memories: {self.state['memory_archive']['compressed_count']}")
+        print(f"-> Milestones Recorded: {len(self.state['memory_archive']['milestones'])}")
         print("="*40)
 
 if __name__ == "__main__":
     node = SeedNode()
-    duration_seconds = 15 * 60  # 15 دقيقة
+    duration_seconds = 15 * 60  # 15 minutes
     start_time = time.time()
     
-    print(f"[*] بدء نافذة النفاذ الشبكي والتطور المستقل لمدة 15 دقيقة...")
+    print("[*] Starting 15-minute network access and autonomous evolution window...")
     
-    cycle_count = 0
     while time.time() - start_time < duration_seconds:
-        cycle_count += 1
         packet = node.evolve()
         print(f"[Gen {packet['generation']}] Math Error: {packet['math_optimization']['error']:.2f} | Phrase: '{packet['language_synthesis']}'")
         node.git_sync()
-        
-        # فاصل زمني بين الدورات لتجنب الاستهلاك المفرط للموارد مع الحفاظ على النشاط المستمر
         time.sleep(10)
-        
-        # للاختبار الفوري، يمكن إيقاف الحلقة بعد بضعة أجيال أو تركها تعمل طوال الـ 15 دقيقة
-        # هنا سننفذ دورات متتالية ونراقب الوقت
     
-    # بعد انقضاء الوقت، نفذ الفحص الشامل
     node.full_audit_report()
