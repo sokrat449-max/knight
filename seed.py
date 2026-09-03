@@ -128,9 +128,9 @@ class SeedNode:
         with open(self.script_file, "r") as f:
             code = f.read()
         
-        stamp = f"# # # # # HARDENED_MUTATION_LOG: gen_79 timestamp_1788452549.7892509
-        if "# # # # HARDENED_MUTATION_LOG: gen_79 timestamp_1788452549.7892509
-            code = re.sub(r'# # # # HARDENED_MUTATION_LOG: gen_79 timestamp_1788452549.7892509
+        stamp = f"# # # # # # HARDENED_MUTATION_LOG: gen_80 timestamp_1788452562.5561948
+        if "# # # # # HARDENED_MUTATION_LOG: gen_80 timestamp_1788452562.5561948
+            code = re.sub(r'# # # # # HARDENED_MUTATION_LOG: gen_80 timestamp_1788452562.5561948
         else:
             code = code.replace("class SeedNode:", f"{stamp}\nclass SeedNode:")
 
